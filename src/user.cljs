@@ -1,13 +1,16 @@
 (ns ^:dev/always user ; Electric currently needs to rebuild everything when any file changes. Will fix
   (:require
     app.todo-list
+    app.statechart-demo
     hyperfiddle.electric
     hyperfiddle.electric-dom2))
 
 (def electric-main
   (hyperfiddle.electric/boot ; Electric macroexpansion - Clojure to signals compiler
     (binding [hyperfiddle.electric-dom2/node js/document.body]
-      (app.todo-list/Todo-list.))))
+      ;; (app.todo-list/Todo-list.)
+      (app.statechart-demo/TrafficLights.)
+      )))
 
 (defonce reactor nil)
 
